@@ -17,6 +17,7 @@ interface PostProps {
   }
   votesAmt: number
   subredditId: string
+  subredditName:string
   currentVote?: PartialVote
   commentAmt: number
 }
@@ -26,6 +27,7 @@ const Post: FC<PostProps> = ({
   votesAmt: votesAmt,
   currentVote: currentVote,
   subredditId,
+  subredditName,
   commentAmt,
 }) => {
   const pRef = useRef<HTMLParagraphElement>(null)
@@ -46,7 +48,7 @@ const Post: FC<PostProps> = ({
                 <a
                   className='underline text-zinc-900 text-sm underline-offset-2'
                   href={`/r/${subredditId}`}>
-                  r/{subredditId}
+                  r/{subredditName}
                 </a>
                 <span className='px-1'>•</span>
               </>
