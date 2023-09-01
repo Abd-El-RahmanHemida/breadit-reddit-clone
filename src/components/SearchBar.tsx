@@ -83,14 +83,14 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
             <CommandGroup heading='Communities'>
               {queryResults?.map((subreddit) => (
                 <CommandItem
-                  onSelect={(e) => {
-                    router.push(`/r/${e}`)
+                  onSelect={() => {
+                    router.push(`/r/${subreddit.id}`)
                     router.refresh()
                   }}
                   key={subreddit.id}
                   value={subreddit.name}>
                   <Users className='mr-2 h-4 w-4' />
-                  <a href={`/r/${subreddit.name}`}>r/{subreddit.name}</a>
+                  <a href={`/r/${subreddit.id}`}>r/{subreddit.name}</a>
                 </CommandItem>
               ))}
             </CommandGroup>
