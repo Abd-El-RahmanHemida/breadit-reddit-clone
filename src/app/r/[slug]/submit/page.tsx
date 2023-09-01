@@ -12,7 +12,7 @@ interface pageProps {
 const page = async ({ params }: pageProps) => {
   const subreddit = await db.subreddit.findFirst({
     where: {
-      name: params.slug,
+      id: params.slug,
     },
   })
 
@@ -27,7 +27,7 @@ const page = async ({ params }: pageProps) => {
             Create Post
           </h3>
           <p className='ml-2 mt-1 truncate text-sm text-gray-500'>
-            in r/{params.slug}
+            in r/{subreddit.id}
           </p>
         </div>
       </div>
